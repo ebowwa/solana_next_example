@@ -15,15 +15,20 @@ const endpoints = [
   { value: 'https://api.devnet.solana.com', label: 'Devnet' }
 ];
 
-function WalletBalance({ publicKey, endpoint }) {
-  const [balance, setBalance] = useState(null);
+interface WalletBalanceProps {
+  publicKey: PublicKey | null;
+  endpoint: string;
+}
+
+function WalletBalance({ publicKey, endpoint }: WalletBalanceProps) {
+  const [balance, setBalance] = useState<number | null>(null);
 
   useEffect(() => {
     if (publicKey) {
       const connection = getConnection(endpoint);
-      connection.getBalance(publicKey).then((bal) => {
+      connection.getBalance(publicKey).then((bal: number) => {
         setBalance(bal / LAMPORTS_PER_SOL);
-      }).catch((error) => {
+      }).catch((error: any) => {
         console.error('Error fetching balance:', error);
         setBalance(null);
       });
@@ -65,7 +70,7 @@ function BuiltInPublicButton() {
 
 export default function SolanaWalletDashboard() {
   const { publicKey } = useWallet();
-  const [selectedEndpoint, setSelectedEndpoint] = useState(endpoints[0].value);
+  const [selectedEndpoint, setSelectedEndpoint] = useState<string>(endpoints[0].value);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-8">
@@ -75,7 +80,7 @@ export default function SolanaWalletDashboard() {
         </h1>
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
           <WalletMultiButton className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full text-white font-bold transition-all hover:from-pink-600 hover:to-purple-600" />
-          <Select onValueChange={(value) => setSelectedEndpoint(value)} defaultValue={endpoints[0].value}>
+          <Select onValueChange={(value: string) => setSelectedEndpoint(value)} defaultValue={endpoints[0].value}>
             <SelectTrigger className="w-48 bg-gray-800 border-gray-700 text-white">
               <SelectValue placeholder="Select a network" />
             </SelectTrigger>
