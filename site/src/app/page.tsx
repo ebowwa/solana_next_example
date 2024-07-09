@@ -10,6 +10,8 @@ import { endpoints } from '@/constants/endpoints';
 import { BuiltInPublicButton } from '@/components/BuiltInPublicButton';
 import { WalletBalance } from '@/components/Wallet/Balance';
 import { Header } from '@/components/Header';
+import MoveLanguageQuizDialog from '@/components/move-quiz';
+
 
 // Body Component
 interface BodyProps {
@@ -34,6 +36,7 @@ const Body: React.FC<BodyProps> = ({ selectedEndpoint, setSelectedEndpoint, publ
       </SelectContent>
     </Select>
     <BuiltInPublicButton />
+    <MoveLanguageQuizDialog />
   </div>
 );
 
