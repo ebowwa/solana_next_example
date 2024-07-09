@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { WalletProvider } from '@/components/WalletProvider';
 import "./globals.css";
-import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="stylesheet" href="./globals.css" />
-        {/* Add other <link> elements here if needed */}
-      </Head>
-      <body>
+      <body className={inter.className}>
         <WalletProvider>{children}</WalletProvider>
       </body>
     </html>

@@ -1,4 +1,3 @@
-
 // app/page.tsx
 'use client'
 
@@ -14,8 +13,11 @@ export default function Home() {
   useEffect(() => {
     if (publicKey) {
       const connection = new Connection('https://api.mainnet-beta.solana.com')
-      connection.getBalance(publicKey).then((bal) => {
+      connection.getBalance(publicKey).then((bal: number) => {
         setBalance(bal / LAMPORTS_PER_SOL)
+      }).catch((error: Error) => {
+        console.error('Error fetching balance:', error)
+        setBalance(null)
       })
     } else {
       setBalance(null)
