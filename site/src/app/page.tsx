@@ -1,12 +1,13 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { getConnection } from '@/components/WalletProvider/connection-api';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Github } from 'lucide-react';
 
 const endpoints = [
   { value: 'https://api.mainnet-beta.solana.com', label: 'Mainnet' },
@@ -48,6 +49,20 @@ function WalletBalance({ publicKey, endpoint }) {
   );
 }
 
+function BuiltInPublicButton() {
+  return (
+    <Link href="https://github.com/ebowwa/solana_next_example" passHref>
+      <button className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gray-800 px-8 py-3 font-medium text-white transition-all duration-300 ease-out hover:ring-2 hover:ring-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <span className="absolute inset-0 h-full w-0 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 ease-out group-hover:w-full" />
+        <span className="relative flex items-center gap-2">
+          <Github className="h-5 w-5" />
+          <span>Built in Public</span>
+        </span>
+      </button>
+    </Link>
+  );
+}
+
 export default function SolanaWalletDashboard() {
   const { publicKey } = useWallet();
   const [selectedEndpoint, setSelectedEndpoint] = useState(endpoints[0].value);
@@ -58,7 +73,7 @@ export default function SolanaWalletDashboard() {
         <h1 className="text-5xl font-extrabold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
           Solana Wallet Dashboard
         </h1>
-        <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
           <WalletMultiButton className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full text-white font-bold transition-all hover:from-pink-600 hover:to-purple-600" />
           <Select onValueChange={(value) => setSelectedEndpoint(value)} defaultValue={endpoints[0].value}>
             <SelectTrigger className="w-48 bg-gray-800 border-gray-700 text-white">
@@ -72,6 +87,7 @@ export default function SolanaWalletDashboard() {
               ))}
             </SelectContent>
           </Select>
+          <BuiltInPublicButton />
         </div>
         {publicKey ? (
           <WalletBalance publicKey={publicKey} endpoint={selectedEndpoint} />
