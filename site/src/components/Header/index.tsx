@@ -1,5 +1,5 @@
 import React from 'react';
-import GlitchText from '@/components/GlitchText';
+import GlitchText from '@/components/ui/GlitchText';
 
 export const Header = () => (
   <div className="py-4 px-2 sm:py-6 sm:px-4 md:py-8 md:px-6 text-center overflow-x-hidden">

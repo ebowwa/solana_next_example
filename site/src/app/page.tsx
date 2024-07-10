@@ -7,11 +7,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, Github } from 'lucide-react';
 import { endpoints } from '@/constants/endpoints';
-import { BuiltInPublicButton } from '@/components/BuiltInPublicButton';
+import { BuiltInPublicButton } from '@/components/ui/BuiltInPublicButton';
 import { WalletBalance } from '@/components/Wallet/Balance';
 import { Header } from '@/components/Header';
-import MoveLanguageQuizDialog from '@/components/move-quiz';
-import TimedDialog from '@/components/TimeDialog'; // Import the TimedDialog component
+import MoveLanguageQuizDialog from '@/components/MoveQuiz';
+import TimedDialog from '@/components/ui/TimeDialog'; // Import the TimedDialog component
 
 // Body Component
 interface BodyProps {
