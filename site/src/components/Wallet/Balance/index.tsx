@@ -1,7 +1,7 @@
 // site/src/components/Wallet/Balance/index.tsx
 import React, { useState, useEffect } from 'react';
 import { PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
-import { getConnection } from '@/components/Wallet/WalletProvider/connection-api';
+import { getConnection } from '@/components/Wallet/Balance/connection-api';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export interface WalletBalanceProps {

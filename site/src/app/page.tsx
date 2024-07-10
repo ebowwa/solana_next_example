@@ -6,10 +6,10 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, Github } from 'lucide-react';
-import { endpoints } from '@/constants/endpoints';
+import { endpoints } from '@/components/Wallet/constants/endpoints';
 import { BuiltInPublicButton } from '@/components/ui/BuiltInPublicButton';
 import { WalletBalance } from '@/components/Wallet/Balance';
-import { Header } from '@/components/Header';
+import { Header } from '@/components/ui/Header';
 import MoveLanguageQuizDialog from '@/components/MoveQuiz';
 import TimedDialog from '@/components/ui/TimeDialog'; // Import the TimedDialog component
 
