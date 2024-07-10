@@ -1,4 +1,4 @@
-// src/components/time-dialog.tsx
+// site/src/components/ui/TimeDialog/index.tsx
 import React, { useState, useEffect } from 'react';
 import { 
   AlertDialog, 

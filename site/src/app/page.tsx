@@ -11,9 +11,8 @@ import { BuiltInPublicButton } from '@/components/ui/BuiltInPublicButton';
 import { WalletBalance } from '@/components/Wallet/Balance';
 import { Header } from '@/components/ui/Header';
 import MoveLanguageQuizDialog from '@/components/MoveQuiz';
-import TimedDialog from '@/components/ui/TimeDialog'; // Import the TimedDialog component
+import TimedDialog from '@/components/ui/TimeDialog'; 
 
-// Body Component
 interface BodyProps {
   selectedEndpoint: string;
   setSelectedEndpoint: (value: string) => void;
@@ -60,7 +59,7 @@ export default function SolanaWalletDashboard() {
             </CardContent>
           </Card>
         )}
-        <TimedDialog /> {/* Include the TimedDialog component here */}
+        <TimedDialog /> 
       </div>
     </div>
   );
